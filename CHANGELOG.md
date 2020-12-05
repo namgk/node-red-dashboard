@@ -1,9 +1,19 @@
-### 2.24.2-beta: Maintenance Release
+### 2.24.3-beta: Maintenance Release
 
 **Fixes**
 
- - Fix to swap switch icons to allow iconify icoons to work. PR#597
+ - Fix dropdown to not preselect option if no passthru.
+ - Fix replacing iconify icons so they can be dynamic.
+ - Fix gauge angular filters with space in msg properties.
+ - Try to resize template when restored from collapse. Issue #642.
+
+### 2.24.2: Maintenance Release
+
+**Fixes**
+
+ - Fix to swap switch icons to allow iconify icons to work. PR#597
  - Tweak dropdown CSS to always try to show select button.
+ - Add node.type class to template so 3rd party nodes can tweak their md-card.
 
 ### 2.24.1: Maintenance Release
 
