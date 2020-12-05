@@ -193,21 +193,29 @@ app.controller('MainController', ['$mdSidenav', '$window', 'UiEvents', '$locatio
                 }
             }
             else {
-                lessObj["@pageBackgroundColor"] = main.angularColors.background.name;
-                lessObj["@pageTitlebarBackgroundColor"] = main.angularColors.primary.name;
-                lessObj["@pageSidebarBackgroundColor"] = main.angularColors.background.name;
+                lessObj["@pageBackgroundColor"] = angularColorToHex(main.angularColors.background.name);
+                lessObj["@pageTitlebarBackgroundColor"] = angularColorToHex(main.angularColors.primary.name);
+                lessObj["@pageSidebarBackgroundColor"] = angularColorToHex(main.angularColors.background.name);
                 lessObj["@groupTextColor"] = (main.isDark === true ? "#FFFFFF" : "#000000");
-                lessObj["@groupBackgroundColor"] = main.angularColors.background.name;
-                lessObj["@groupBorderColor"] = main.angularColors.accent.name;
+                lessObj["@groupBackgroundColor"] = angularColorToHex(main.angularColors.background.name);
+                lessObj["@groupBorderColor"] = angularColorToHex(main.angularColors.accent.name);
                 lessObj["@widgetTextColor"] = (main.isDark === true ? "#FFFFFF" : "#000000");
-                lessObj["@widgetBackgroundColor"] = main.angularColors.accent.name;
-                lessObj["@widgetBorderColor"] = main.angularColors.background.name;
+                lessObj["@widgetBackgroundColor"] = angularColorToHex(main.angularColors.primary.name);
+                lessObj["@widgetBorderColor"] = angularColorToHex(main.angularColors.background.name);
             }
             if (typeof main.allowTempTheme === 'undefined') { main.allowTempTheme = true; }
             lessObj["@nrTemplateTheme"] = main.allowTempTheme;
             lessObj["@nrTheme"] = !main.allowAngularTheme;
             lessObj["@nrUnitHeight"] = (main.sizes.sy / 2)+"px";
             less.modifyVars(lessObj);
+        }
+
+        function angularColorToHex(color) {
+            var angColorValues = { red: "#F44336", pink: "#E91E63", purple: "#9C27B0", deeppurple: "#673AB7",
+                indigo: "#3F51B5", blue: "#2196F3", lightblue: "#03A9F4", cyan: "#00BCD4", teal: "#009688",
+                green: "#4CAF50", lightgreen: "#8BC34A", lime: "#CDDC39", yellow: "#FFEB3B", amber: "#FFC107",
+                orange: "#FF9800", deeporange: "#FF5722", brown: "#795548", grey: "#9E9E9E", bluegrey: "#607D8B"};
+            return angColorValues[color.replace("-","").toLowerCase()];
         }
 
         function processGlobals() {
