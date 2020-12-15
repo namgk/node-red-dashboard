@@ -349,7 +349,10 @@ function loadConfiguration(type,scope) {
         }
 
         // Ensure scale labels do not rotate
-        config.options.scales.xAxes[0].ticks.maxRotation = 0;
+        var numberOfPoints = config.data[0] ? config.data[0].length : 0;
+        console.log(config)
+            config.options.scales.xAxes[0].ticks.maxRotation = 90;
+            config.options.scales.xAxes[0].ticks.minRotation = 90;
         config.options.scales.xAxes[0].ticks.autoSkipPadding = 4;
         config.options.scales.xAxes[0].ticks.autoSkip = true;
     }
